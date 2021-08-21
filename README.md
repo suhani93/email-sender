@@ -14,6 +14,10 @@
 > 1. application.yml 안에 있는 username 과 password 변경
 > 2. 실행
 
+# 설정 시 나올 수 있는 문제
+> Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted 발생 시 
+> [여기](https://www.google.com/search?q=+Authentication+failed%3B+nested+exception+is+javax.mail.AuthenticationFailedException&sxsrf=ALeKk02TCQyacaOq3Pm8V5UQ9oycPqhXBw%3A1629555613301&ei=nQshYYzuEcPM-Qanh7uoDw&oq=+Authentication+failed%3B+nested+exception+is+javax.mail.AuthenticationFailedException&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBQgAEIAEMgUIABDLATIFCAAQgAQyBQgAEMsBMgUIABCABDIECAAQHjIFCAAQgARKBAhBGABQjQxYjQxgwQ1oAHAAeACAAXOIAeIBkgEDMC4ymAEAoAEBwAEB&sclient=gws-wiz&ved=0ahUKEwjMsOPbp8LyAhVDZt4KHafDDvUQ4dUDCA4&uact=5) 참고
+
 # 메일 보내는 API URL
 
 ### URL
@@ -36,9 +40,6 @@
 ### Ex
 
 > http://localhost:8080/send?mailRecipient=sh931216@naver.com&mailSender=suhani93&subject=이메일테스트&templateId=mail/test&parameters[message]=발송했어요
-
-
-
 
 
 # 기타
