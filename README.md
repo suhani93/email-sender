@@ -31,11 +31,9 @@
 > |:----:|:----:|:----:|:------:|:------:|
 > |mailRecipient|String|메일 받는 사람|suhani93@naver.com|O|
 > |mailSender|String|메일 보낸 사람|suhani93|O|
-> |templateId|String|Thymeleaf 탬플릿 아이디|mail/test|O|
+> |templateId|String|Thymeleaf 탬플릿 아이디<br>(classpath:templates/ 아래 경로)|mail/test|O|
 > |subject|String|메일의 제목| 이메일 발송 테스트 |X|
 > |parameters|Object|Thymeleaf 탬플릿에서 사용될 값|발송했어요|X|
-
-
 
 ### Ex
 
