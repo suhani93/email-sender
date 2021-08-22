@@ -37,7 +37,7 @@
 
 ### Ex
 
-> http://localhost:8080/send?mailRecipient=suhani93@naver.com&mailSender=smtp.suhani93&subject=이메일테스트&templateId=mail/test&parameters[message]=발송했어요
+> http://localhost:8080/send?mailRecipient=suhani93@naver.com&mailSender=smtp.suhani93&subject=이메일테스트&templateId=mail/test&parameters%5Bmessage%5D=발송했어요
 
 ![image](https://user-images.githubusercontent.com/73545607/130357071-7cc2425c-3ea0-4c98-b277-36aa831bf5b8.png)
 
@@ -45,5 +45,3 @@
 # 기타
 
 > gmail 계정 SMTP는 일 발송 건수가 있어서 실 운영시에는 SMTP 서버를 구축해서 사용하거나 g-suite 혹은 다른 SMTP 서버를 구매해서 사용해야 한다.
-
-

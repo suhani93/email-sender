@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 @RestControllerAdvice
 public class RestControllerCustomAdvice {
 
-    @ExceptionHandler(BindException.class)
+    @ExceptionHandler({BindException.class})
     public ErrorResponse processValidationError(BindException exception) {
 
 
