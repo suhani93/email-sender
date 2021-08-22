@@ -37,7 +37,7 @@
 
 ### Ex
 
-> http://localhost:8080/send?mailRecipient=sh931216@naver.com&mailSender=suhani93&subject=이메일테스트&templateId=mail/test&parameters[message]=발송했어요
+> http://localhost:8080/send?mailRecipient=suhani93@naver.com&mailSender=smtp.suhani93&subject=이메일테스트&templateId=mail/test&parameters[message]=발송했어요
 
 
 # 기타
