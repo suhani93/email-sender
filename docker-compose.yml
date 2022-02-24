@@ -1,0 +1,15 @@
+version: "3.8"
+
+services: # 실행 할 컨테이너 정희
+  database:
+    # 'database'서비스에서 참조할 이미지
+    image: mariadb
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      # 환경 설정에 필요한 설정들. server코드와 싱크를 맞추어야 한다.
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE : email_db
+      MYSQL_USER: email_db
+      MYSQL_PASSWORD: email_db@1234
