@@ -15,11 +15,6 @@ import javax.validation.Valid;
 public class MailSenderRestController {
     private final MailSenderService mailSenderService;
 
-    @GetMapping("/test")
-    public String as(){
-        return "aaaa";
-    }
-
     @GetMapping("/send")
     public ResponseEntity<?> sendTemplateMail(@Valid MailInfoRequest mailInfoRequest) throws Exception {
         mailSenderService.sendTemplateMail(mailInfoRequest);
