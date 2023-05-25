@@ -1,6 +1,7 @@
 package com.example.email.advice;
 
 import com.example.email.response.ErrorResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @RestControllerAdvice
 public class RestControllerCustomAdvice {
 
     @ExceptionHandler(Exception.class)
-    public ErrorResponse serverError(){
+    public ErrorResponse serverError(Exception e){
+        log.error("{}",e);
+
         List<String> errors = new ArrayList<>();
         errors.add("서버에 이상이 생겼습니다.");
 
