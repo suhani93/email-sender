@@ -1,6 +1,6 @@
-package com.example.email.advice;
+package com.example.email.sender.advice;
 
-import com.example.email.response.ErrorResponse;
+import com.example.email.sender.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;

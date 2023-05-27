@@ -1,6 +1,6 @@
-package com.example.email.service;
+package com.example.email.sender.service;
 
-import com.example.email.request.MailInfoRequest;
+import com.example.email.sender.request.MailInfoRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -12,11 +12,11 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-@Qualifier("MailSenderKafkaSender")
+@Qualifier("kafkaMailSenderSender")
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class MailSenderKafkaSender implements MailSender {
+public class KafkaMailSenderSender implements MailSender {
 
     private final ObjectMapper objectMapper;
     private final KafkaTemplate<String, String> kafkaTemplate;

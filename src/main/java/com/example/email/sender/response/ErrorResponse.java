@@ -1,4 +1,4 @@
-package com.example.email.response;
+package com.example.email.sender.response;
 
 import lombok.Getter;
 import lombok.Setter;

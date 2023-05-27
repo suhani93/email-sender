@@ -1,11 +1,10 @@
-package com.example.email.request;
+package com.example.email.sender.request;
 
 import javax.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import java.util.Map;
 import lombok.ToString;
 

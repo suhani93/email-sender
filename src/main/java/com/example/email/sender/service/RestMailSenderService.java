@@ -1,6 +1,6 @@
-package com.example.email.service;
+package com.example.email.sender.service;
 
-import com.example.email.request.MailInfoRequest;
+import com.example.email.sender.request.MailInfoRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.mail.MailProperties;
@@ -13,10 +13,10 @@ import org.thymeleaf.context.Context;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-@Qualifier("MailSenderSender")
+@Qualifier("restMailSenderService")
 @Service
 @RequiredArgsConstructor
-public class MailSenderService implements MailSender {
+public class RestMailSenderService implements MailSender {
     private final MailProperties mailProperties;
     private final TemplateEngine templateEngine;
     private final JavaMailSenderImpl mailSender;
