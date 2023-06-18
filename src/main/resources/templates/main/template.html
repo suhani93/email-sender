@@ -16,129 +16,28 @@
                 <div>
                     <label for="mailRecipient">메일 받는 사람:</label>
                     <input type="email" id="mailRecipient" name="mailRecipient" required>
-                    <div></div>
                 </div>
                 <div>
                     <label for="mailSender">메일 보낸 사람 이름:</label>
                     <input type="text" id="mailSender" name="mailSender" required>
-                    <div></div>
                 </div>
                 <div>
                     <label for="subject">메일의 제목:</label>
                     <input type="text" id="subject" name="subject" required>
-                    <div></div>
                 </div>
                 <div>
-                    <label for="templateId">Thymeleaf 템플릿 아이디:</label>
-                    <input type="text" id="templateId" name="templateId" required>
-                    <div></div>
+                    <label for="templateIdList">Thymeleaf 템플릿 아이디:</label>
+                    <select id="templateIdList" name="templateIdList"></select>
                 </div>
 
-                <button onclick="addInputFields()">
-                    <i aria-hidden="true">add</i>
-                    <span>입력 상자 추가</span>
-                </button>
-
-                <div id="inputFields"></div>
+                <div id="templateParametersDiv"></div>
 
                 <button id="mailSendButton">메일 전송</button>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-
-    const createInputFields = () => {
-        let inputCount = 0;
-
-        const createInputTag = (inputId, labelText) => {
-            const div = document.createElement("div");
-
-            const input = document.createElement("input");
-            input.type = "text";
-            input.id = inputId;
-            input.name = inputId;
-            div.appendChild(input);
-
-            const label = document.createElement("label");
-            label.setAttribute("for", inputId);
-            label.textContent = labelText;
-            div.appendChild(label);
-
-            const lineRipple = document.createElement("div");
-            div.appendChild(lineRipple);
-
-            return div;
-        };
-
-        const addInputFields = () => {
-            const inputContainer = document.getElementById("inputFields");
-            const keyDiv = createInputTag(`key_${inputCount}`, `Key ${inputCount + 1}`);
-            const valueDiv = createInputTag(`value_${inputCount}`, `Value ${inputCount + 1}`);
-
-            const removeButton = document.createElement("button");
-            removeButton.textContent = "Remove";
-            removeButton.addEventListener("click", () => {
-                keyDiv.remove();
-                valueDiv.remove();
-                removeButton.remove();
-            });
-
-            inputContainer.appendChild(keyDiv);
-            inputContainer.appendChild(valueDiv);
-            inputContainer.appendChild(removeButton);
-
-            inputCount++;
-        };
-
-        return addInputFields;
-    };
-
-    const addInputFields = createInputFields();
-
-    const generateJSON = () => {
-        const jsonOutput = {};
-
-        const inputs = document.querySelectorAll("[name^='key_']");
-        inputs.forEach((input) => {
-            const key = input.value;
-            const index = input.name.split("_")[1];
-            const value = document.querySelector(`[name="value_${index}"]`).value;
-
-            if (key && value) {
-                jsonOutput[key] = value;
-            }
-        });
-
-        return jsonOutput;
-    };
-
-    const makeMailSendFormData = () => {
-        return {
-            mailRecipient: document.getElementById("mailRecipient").value,
-            mailSender: document.getElementById("mailSender").value,
-            subject: document.getElementById("subject").value,
-            templateId: document.getElementById("templateId").value,
-            parameters: generateJSON(),
-        };
-    };
-
-    const sendMail = () => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "/send", true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log("메일이 성공적으로 전송되었습니다.");
-            }
-        };
-        xhr.send(JSON.stringify(makeMailSendFormData()));
-    };
-
-    const mailSendButton = document.getElementById("mailSendButton");
-    mailSendButton.addEventListener("click", sendMail);
-</script>
+<script src="/api/template-api.js"></script>
+<script src="/templates/main/template/index.js"></script>
 </body>
-
 </html>

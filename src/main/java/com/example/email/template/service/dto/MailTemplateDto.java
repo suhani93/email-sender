@@ -1,6 +1,8 @@
 package com.example.email.template.service.dto;
 
 import com.example.email.template.domain.MailTemplate;
+import com.example.email.template.domain.TemplateParameter;
+import java.util.List;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,7 @@ public class MailTemplateDto {
     private String name;
     private String description;
     private String template;
+    private List<TemplateParameter> templateParameters;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
@@ -21,6 +24,7 @@ public class MailTemplateDto {
         mailTemplateDto.name = mailTemplate.getName();
         mailTemplateDto.description = mailTemplate.getDescription();
         mailTemplateDto.template = mailTemplate.getTemplate();
+        mailTemplateDto.templateParameters = mailTemplate.getTemplateParameters();
         mailTemplateDto.createdAt = mailTemplate.getCreatedAt();
         mailTemplateDto.modifiedAt = mailTemplate.getModifiedAt();
         return mailTemplateDto;
